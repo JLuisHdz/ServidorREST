@@ -1,0 +1,59 @@
+<ion-menu side="start" menuId="first" contentId="main">
+  <ion-header>
+      <ion-toolbar color="primary">
+          <ion-title>Registrar</ion-title>
+      </ion-toolbar>
+  </ion-header>
+  <ion-content>
+      <ion-list>
+          <ion-button expand="block" color="black" (click)="Datosd()">Usuaros</ion-button>
+          <ion-button expand="block" color="black" href="/registro-auto">Automóviles</ion-button>
+          <ion-button (click)="logout()">LOG OUT</ion-button>
+      </ion-list>
+  </ion-content>
+</ion-menu>
+<ion-router-outlet id="main"></ion-router-outlet>
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button autoHide="false"></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+          Menu Usuarios
+      </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-card>
+
+    <div class="datos">
+      <ion-input placeholder="Nombre" class="primary-input" [(ngModel)]="usuario.nombre"></ion-input>
+      <ion-input placeholder="Email" class="primary-input" [(ngModel)]="usuario.email"></ion-input>
+      <ion-input placeholder="Password" type="password" class="primary-input" [(ngModel)]="usuario.password"></ion-input>
+      <ion-input placeholder="Edad" class="primary-input" [(ngModel)]="usuario.edad"></ion-input>
+      <ion-item>
+          <ion-label position="floating">Genero</ion-label>
+          <ion-select [(ngModel)]="usuario.genero" placeholder="Selecciona">
+              <ion-select-option value="Femenino">Femenino</ion-select-option>
+              <ion-select-option value="Masculino">Masculino</ion-select-option>
+          </ion-select>
+      </ion-item>
+      <ion-item>
+          <ion-label position="floating">Tipo de usuario</ion-label>
+          <ion-select [(ngModel)]="usuario.tipoUsuario" placeholder="Selecciona">
+              <ion-select-option value="Pasajero">Pasajero</ion-select-option>
+              <ion-select-option value="Conductor">Conductor</ion-select-option>
+          </ion-select>
+      </ion-item>
+        <ion-button (click)="postUsuario()">Registrar</ion-button>
+  </div>
+
+  <div class="aut">
+    <ion-input placeholder="Dueño del auto" class="primary-input" [(ngModel)]="auto.idDriver"></ion-input>
+    <ion-input placeholder="Placas" class="primary-input" [(ngModel)]="auto.placas"></ion-input>
+    <ion-input placeholder="Modelo" class="primary-input" [(ngModel)]="auto.modelo"></ion-input>
+    <ion-input placeholder="Año de fabricación" class="primary-input" [(ngModel)]="auto.anio"></ion-input>
+
+      <ion-button class="guardar" (click)="postRegistro()">Registrar</ion-button>
+    </div>
